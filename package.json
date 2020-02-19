@@ -1,0 +1,14 @@
+{
+  "name": "herocrop",
+  "version": "1.0.0",
+  "description": "Crop images and upload to AWS in one place",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Little",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}
