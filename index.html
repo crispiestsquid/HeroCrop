@@ -1,1 +1,25 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="node_modules/croppie/croppie.css" />
+    <script src="node_modules/croppie/croppie.min.js"></script>
+</head>
+
+<body>
+    <h1>Hi</h1>
+    <div id="test"></div>
+    <script>
+        var c = new Croppie(document.getElementById('test'), {
+            viewport: { width: 300, height: 300 },
+            boundary: { width: 700, height: 500 },
+            showZoomer: false,
+            enableOrientation: true
+        });
+        c.bind({
+            url: 'img/apple.jpeg',
+        });
+    </script>
+</body>
+
+</html>
