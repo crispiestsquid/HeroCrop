@@ -10,7 +10,7 @@
   "license": "ISC",
   "devDependencies": {},
   "dependencies": {
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.3.1",
     "croppie": "^2.6.4",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
