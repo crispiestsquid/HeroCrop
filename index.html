@@ -2,24 +2,120 @@
 <html>
 
 <head>
+
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="node_modules/croppie/croppie.css" />
     <script src="node_modules/croppie/croppie.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <title>Hero Crop</title>
+
 </head>
 
 <body>
-    <h1>Hi</h1>
-    <div id="test"></div>
-    <script>
-        var c = new Croppie(document.getElementById('test'), {
-            viewport: { width: 300, height: 300 },
-            boundary: { width: 700, height: 500 },
-            showZoomer: false,
-            enableOrientation: true
-        });
-        c.bind({
-            url: 'img/apple.jpeg',
-        });
-    </script>
+
+    <header class="jumbotron jumbotron-fluid bg-primary text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>HeroCrop</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <label for="imageupload">Upload an image to crop</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-image"></i></span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="imageupload" id="imageupload"
+                            accept="image/*" />
+                        <label class="custom-file-label" for="imageupload">Choose image</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div id="croppie"></div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary mb-3" id="crop"><i class="fa fa-crop"></i> Crop</button>
+                        <button class="btn btn-success mb-3" id="upload"><i class="fa fa-upload"></i> Upload</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3>Preview</h3>
+                        <img id="preview" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="linkModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">AWS S3 Upload Sucess!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <label for="imagelink">Here's your new link</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i
+                                                class="fa fa-link"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="imagelink"/>
+                                    <div class="input-group-append">
+                                        <button id="copy" class="btn btn-primary text-white">
+                                            <i class="fa fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col offset-1">
+                    <p>&copy; KevinLittleTech 2020</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery must come first, then Popper.js, then the Bootstrap JavaScript plugins.-->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

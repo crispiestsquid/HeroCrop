@@ -4,15 +4,16 @@
   "description": "Crop images and upload to AWS in one place",
   "main": "index.html",
   "scripts": {
-    "start": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kevin Little",
   "license": "ISC",
-  "devDependencies": {
-    "lite-server": "^2.3.0"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "croppie": "^2.6.4"
+    "bootstrap": "^4.0.0",
+    "croppie": "^2.6.4",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9"
   }
 }
