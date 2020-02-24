@@ -70,7 +70,12 @@ function handleFiles(files) {
 
 function cropImage(_fileName, callback) {
     var ext = _fileName.split('.')[1];
-    var newFileName = _fileName.split('.')[0] + '_300x300.' + ext;
+    var newFileName;
+    if (!_fileName.includes('_300x300')) {
+        newFileName = _fileName.split('.')[0] + '_300x300.' + ext;
+    } else {
+        newFileName = _fileName;
+    }
     if (ext === 'jpg') {
         ext = 'jpeg';
     }
