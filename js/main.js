@@ -2,6 +2,7 @@ window.onload = init;
 
 // declare global variables
 var c;
+var uploadedURL;
 
 function init() {
 
@@ -20,6 +21,7 @@ function init() {
     var fileName;
     var base64Image;
     var copyBtn = document.getElementById('copy');
+    var inputSizeSelect = document.getElementById('inputSizeSelect');
 
     // add on change listener to the file input
     fileInput.addEventListener('change', function () {
@@ -50,6 +52,55 @@ function init() {
         linkInput.setSelectionRange(0, 99999);
         document.execCommand('copy');
     });
+
+    inputSizeSelect.addEventListener('change', function () {
+        switch (inputSizeSelect.value) {
+            case "1" :
+                c.destroy();
+                c = new Croppie(document.getElementById('croppie'), {
+                    viewport: { width: 300, height: 300 },
+                    boundary: { width: 700, height: 500 },
+                    showZoomer: true,
+                    enableOrientation: true
+                });
+                if (uploadedURL) {
+                    c.bind({
+                        url: uploadedURL,
+                    });
+                }
+                break;
+            case "2" :
+                c.destroy();
+                c = new Croppie(document.getElementById('croppie'), {
+                    viewport: { width: 500, height: 250 },
+                    boundary: { width: 700, height: 500 },
+                    showZoomer: true,
+                    enableOrientation: true
+                });
+                if (uploadedURL) {
+                    c.bind({
+                        url: uploadedURL,
+                    });
+                }
+                break;
+            case "3" :
+                c.destroy();
+                c = new Croppie(document.getElementById('croppie'), {
+                    viewport: { width: 440, height: 330 },
+                    boundary: { width: 700, height: 500 },
+                    showZoomer: true,
+                    enableOrientation: true
+                });
+                if (uploadedURL) {
+                    c.bind({
+                        url: uploadedURL,
+                    });
+                }
+                break;
+            default :
+                break;
+        }
+    })
 }
 
 function handleFiles(files) {
@@ -62,6 +113,7 @@ function handleFiles(files) {
             c.bind({
                 url: reader.result,
             });
+            uploadedURL = reader.result;
         }
     }
 
