@@ -3,6 +3,7 @@ window.onload = init;
 // declare global variables
 var c;
 var uploadedURL;
+var width;
 
 function init() {
 
@@ -12,6 +13,8 @@ function init() {
         showZoomer: true,
         enableOrientation: true
     });
+
+    width = 300;
 
     // initialize variables
     var fileInput = document.getElementById('imageupload');
@@ -82,6 +85,7 @@ function init() {
                         url: uploadedURL,
                     });
                 }
+                width = 500;
                 break;
             case "3" :
                 c.destroy();
@@ -96,6 +100,7 @@ function init() {
                         url: uploadedURL,
                     });
                 }
+                width = 440;
                 break;
             default :
                 break;
@@ -121,10 +126,22 @@ function handleFiles(files) {
 }
 
 function cropImage(_fileName, callback) {
+    var size;
+    switch (c.viewport.width) {
+        case 300 :
+            size = '_300x300';
+            break;
+        case 500 :
+            size = '_500x250';
+            break;
+        case 440 :
+            size = '_440x330';
+            break;
+    }
     var ext = _fileName.split('.')[1];
     var newFileName;
-    if (!_fileName.includes('_300x300')) {
-        newFileName = _fileName.split('.')[0] + '_300x300.' + ext;
+    if (!_fileName.includes(size)) {
+        newFileName = _fileName.split('.')[0] + size + ext;
     } else {
         newFileName = _fileName;
     }
