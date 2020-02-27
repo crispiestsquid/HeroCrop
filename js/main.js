@@ -127,7 +127,7 @@ function handleFiles(files) {
 
 function cropImage(_fileName, callback) {
     var size;
-    switch (c.viewport.width) {
+    switch (width) {
         case 300 :
             size = '_300x300';
             break;
